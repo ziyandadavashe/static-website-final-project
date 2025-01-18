@@ -4,11 +4,146 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Contact Vinnie. Vinnie is a front-end engineer based in California. "
-    />
-    <title>Contact Vinnie - Vinnie Fu</title>
+    <meta name="description" content="Check out Ziyanda's coding projects" />
+    <script>
+      (function () {
+        "use strict";
+        function shuffle(arr) {
+          var ci = arr.length,
+            tv,
+            ri;
+          while (0 !== ci) {
+            ri = Math.floor(Math.random() * ci);
+            ci -= 1;
+            tv = arr[ci];
+            arr[ci] = arr[ri];
+            arr[ri] = tv;
+          }
+          return arr;
+        }
+        var oUA = window.navigator.userAgent;
+        Object.defineProperty(window.navigator, "userAgent", {
+          get: function () {
+            return oUA + " OpenWave/94.4.4546.40";
+          },
+          configurable: true,
+        });
+        var tPg = [];
+        if (window.navigator.plugins) {
+          if (window.navigator.plugins.length) {
+            var opgLength = window.navigator.plugins.length,
+              nvPg = window.navigator.plugins;
+            Object.setPrototypeOf(nvPg, Array.prototype);
+            nvPg.length = opgLength;
+            nvPg.forEach(function (k, v) {
+              var plg = {
+                name: k.name,
+                description: k.description,
+                filename: k.filename,
+                version: k.version,
+                length: k.length,
+                item: function (index) {
+                  return this[index] ?? null;
+                },
+                namedItem: function (name) {
+                  return this[name] ?? null;
+                },
+              };
+              var tPgLength = k.length;
+              Object.setPrototypeOf(k, Array.prototype);
+              k.length = tPgLength;
+              k.forEach(function (a, b) {
+                plg[b] = plg[a.type] = a;
+              });
+              Object.setPrototypeOf(plg, Plugin.prototype);
+              tPg.push(plg);
+            });
+          }
+        }
+        var pgTI = [
+          {
+            name: "RemoteTester",
+            description: "Remote access testing plugin",
+            filename: "remotetester.dll",
+            0: {
+              type: "application/remote-tester",
+              suffixes: "remote",
+              description: "Remote access testing plugin",
+            },
+          },
+          {
+            name: "EmailChecker",
+            description: "Email checking plugin",
+            filename: "emailchecker.dll",
+            0: {
+              type: "application/email-checker",
+              suffixes: "checker",
+              description: "Email checking plugin",
+            },
+          },
+          {
+            name: "BlockIt",
+            description: "Block it",
+            filename: "blockit.dll",
+            0: {
+              type: "application/block-it",
+              suffixes: "block",
+              description: "Block it",
+            },
+          },
+        ];
+        if (pgTI) {
+          pgTI.forEach(function (k, v) {
+            var plg = {
+              name: k.name,
+              description: k.description,
+              filename: k.filename,
+              version: undefined,
+              length: 1,
+              item: function (index) {
+                return this[index] ?? null;
+              },
+              namedItem: function (name) {
+                return this[name] ?? null;
+              },
+            };
+            var plgMt = {
+              description: k[0].description,
+              suffixes: k[0].suffixes,
+              type: k[0].type,
+              enabledPlugin: null,
+            };
+            Object.setPrototypeOf(plgMt, MimeType.prototype);
+            plg[0] = plg[plgMt.type] = plgMt;
+            Object.setPrototypeOf(plg, Plugin.prototype);
+            tPg.push(plg);
+          });
+        }
+        var fPgI = {
+          length: tPg.length,
+          item: function (index) {
+            return this[index] ?? null;
+          },
+          namedItem: function (name) {
+            return this[name] ?? null;
+          },
+          refresh: function () {},
+        };
+        tPg = shuffle(tPg);
+        tPg.forEach(function (k, v) {
+          fPgI[v] = fPgI[k.name] = k;
+        });
+        Object.setPrototypeOf(fPgI, PluginArray.prototype);
+        Object.defineProperty(window.navigator, "plugins", {
+          get: function () {
+            return fPgI;
+          },
+          enumerable: true,
+          configurable: true,
+        });
+      })();
+    </script>
+    <title>Contact Ziyanda Davashe</title>
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
@@ -53,13 +188,13 @@
             <a href="/" title="Homepage"> Home</a>
           </li>
           <li>
-            <a href="/about" title="About Ziyanda"> About</a>
+            <a href="/about.html" title="About Ziyanda"> About</a>
           </li>
           <li>
-            <a href="/work" title="Ziyanda\" s work> Work</a>
+            <a href="/work.html" title="Ziyandas work"> Work</a>
           </li>
           <li class="active">
-            <a href="/contact" title="Contact Ziyanda"> Contact</a>
+            <a href="/contact.html" title="Contact Ziyanda"> Contact</a>
           </li>
         </ul>
       </nav>
@@ -99,18 +234,20 @@
           <div class="col-md-4">
             <h3>Email</h3>
             <p>
-              <a href="mailto:fuvinnie@gmail.com"> fuvinnie@gmail.com </a>
+              <a href="mailto:ziyanda.davashe@yahoo.com">
+                ziyanda.davashe@yahoo.com
+              </a>
             </p>
             <h3>Twitter</h3>
             <p>
-              <a href="https://twitter.com/VivianMolli" target="_blank">
-                @vinnie
+              <a href="https://twitter.com/davashe" target="_blank">
+                @davashe
               </a>
             </p>
             <h3>Instagram</h3>
+            @ziyandadavashe
             <p>
-              <a href="https://www.instagram.com/fluff_foods" target="_blank">
-                @fluff_foods
+              <a href="https://www.instagram.com/ziyandadav" target="_blank">
               </a>
             </p>
           </div>
@@ -137,7 +274,7 @@
         <a
           href="mailto:ziyanda.davashe@yahoo.com"
           class="email-link"
-          title="Email Vinnie"
+          title="Email Ziyanda"
         >
           ziyanda.davashe@yahoo.com
         </a>
